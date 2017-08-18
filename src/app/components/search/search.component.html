@@ -4,32 +4,30 @@
     <p>Enter Number</p>
     <div class="row" >
       <div class="col-md-6 input-group">
-              <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number1 ' name='number1' #number1
+              <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number1 ' name='number1' #number1
              (blur)="update(number1.value,1)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number2 ' name='number1' #number2
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number2 ' name='number1' #number2
              (blur)="update(number2.value,2)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number3 ' name='number1' #number3
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number3 ' name='number1' #number3
              (blur)="update(number3.value,3)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number4 ' name='number1' #number4
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number4 ' name='number1' #number4
              (blur)="update(number4.value,4)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number5 ' name='number1' #number5
-             (blur)="update(Phone.number5.value,5)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number6 ' name='number1' #number6
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number5 ' name='number1' #number5
+             (blur)="update(number5.value,5)">
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number6 ' name='number1' #number6
              (blur)="update(number6.value,6)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number7 ' name='number1'#number7
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number7 ' name='number1'#number7
              (blur)="update(number7.value,7)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number8 ' name='number1' #number8
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number8 ' name='number1' #number8
              (blur)="update(number8.value,8)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number9 ' name='number1' #number9
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number9 ' name='number1' #number9
              (blur)="update(number9.value,9)">
-             <input class="col-xs-1" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number10 ' name='number1' #number10
+             <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number10 ' name='number1' #number10
              (blur)="update(number10.value,10)">
-
-
             </div>
       <p>{{Phone.number1}}{{Phone.number2}}{{Phone.number3}}{{Phone.number4}}{{Phone.number5}}{{Phone.number6}}{{Phone.number7}}{{Phone.number8}}{{Phone.number9}}{{Phone.number10}}</p>
 </div>
-
+{{searchStr}}
      <div class="input-group">
        <input name="searchStr" type="text" class="form-control" type="number" class="form-control" maxlength = "10" size="50" placeholder="XXXXXXXXXX" [(ngModel)]="searchStr" name="searchStr" required>
        <div class="input-group-btn">

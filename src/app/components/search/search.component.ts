@@ -15,8 +15,66 @@ import { Number } from '../../services/data';
 
 
 export class SearchComponent implements OnInit {
-
 searchStr: string;
+Phone = {
+number1: '',
+number2: '',
+number3: '',
+number4: '',
+number5: '',
+number6: '',
+number7: '',
+number8: '',
+number9: '',
+number10: '',
+};
+
+update(numbers,n) {
+  var index = 0;
+  if(n==1){
+  this.Phone.number1 = numbers;
+  }
+  else
+  if(n==2){
+  this.Phone.number2 = numbers;
+  }
+  else
+  if(n==3){
+  this.Phone.number3 = numbers;
+  }
+  else
+  if(n==4){
+  this.Phone.number4 = numbers;
+  }
+  else
+  if(n==5){
+  this.Phone.number5 = numbers;
+  }
+  else
+  if(n==6){
+  this.Phone.number6 = numbers;
+  }
+  else
+  if(n==7){
+  this.Phone.number7 = numbers;
+  }
+  else
+  if(n==8){
+  this.Phone.number8 = numbers;
+  }
+  else
+  if(n==9){
+  this.Phone.number9 = numbers;
+  }
+  else
+  if(n==10){
+  this.Phone.number10 = numbers;
+  }
+  this.searchStr =  this.Phone.number1 + this.Phone.number2 + this.Phone.number3 + this.Phone.number4 + this.Phone.number5 + this.Phone.number6 + this.Phone.number7 + this.Phone.number8 + this.Phone.number9 + this.Phone.number10 +''
+//alert(this.searchStr);
+}
+
+
 samplenumber : Number[];
 title = 'Search String';
 
