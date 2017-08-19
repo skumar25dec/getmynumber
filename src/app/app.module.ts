@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +24,15 @@ import { AppComponent } from './app.component';
 import { appRoutingProvider } from './app.routes';
 import { NumService } from './services/app.service';
 
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyD2-slA8UrtFa5fNDpdDJZkR14UtrPYses",
+  authDomain: "gmnum-3e636.firebaseapp.com",
+  databaseURL: "https://gmnum-3e636.firebaseio.com",
+  projectId: "gmnum-3e636",
+  storageBucket: "gmnum-3e636.appspot.com",
+  messagingSenderId: "140006234514"
+};
 
 @NgModule({
   declarations: [
@@ -35,6 +50,9 @@ import { NumService } from './services/app.service';
     FormsModule,
     RouterModule,
     appRoutingProvider,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
 
   ],
   providers: [NumService],

@@ -25,8 +25,9 @@
              <input class="col-xs-1" placeholder="X" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ng-model='Phone.number10 ' name='number1' #number10
              (blur)="update(number10.value,10)">
             </div>
+            </div>
       <p>{{Phone.number1}}{{Phone.number2}}{{Phone.number3}}{{Phone.number4}}{{Phone.number5}}{{Phone.number6}}{{Phone.number7}}{{Phone.number8}}{{Phone.number9}}{{Phone.number10}}</p>
-</div>
+
 {{searchStr}}
      <div class="input-group">
        <input name="searchStr" type="text" class="form-control" type="number" class="form-control" maxlength = "10" size="50" placeholder="XXXXXXXXXX" [(ngModel)]="searchStr" name="searchStr" required>
