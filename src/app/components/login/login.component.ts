@@ -28,7 +28,7 @@ user: Observable<firebase.User>;
 
 
 constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase,private router: Router) {
-
+ 
  this.user = afAuth.authState;
 
 }
