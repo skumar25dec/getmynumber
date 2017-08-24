@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from "@angular/http";
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ModuleWithProviders } from '@angular/core';
@@ -21,8 +22,19 @@ import { SearchComponent }  from './components/search/search.component';
 
 
 import { AppComponent } from './app.component';
-import { appRoutingProvider } from './app.routes';
+//import { appRoutingProvider } from './app.routes';
 import { NumService } from './services/app.service';
+// cart
+
+import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { OrderConfirmationComponent } from "./components/order-confirmation/order-confirmation.component";
+import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
+import { StoreFrontComponent } from "./components/store-front/store-front.component";
+import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
+import { DeliveryOptionsDataService } from "./services/delivery-options.service";
+import { ProductsDataService } from "./services/products.service";
+import { ShoppingCartService } from "./services/shopping-cart.service";
+import { LocalStorageServie, StorageService } from "./services/storage.service";
 
 
 export const firebaseConfig = {
@@ -43,19 +55,36 @@ export const firebaseConfig = {
     AppComponent,
     NavComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    ShoppingCartComponent,
+    StoreFrontComponent,
+    CheckoutComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
-    appRoutingProvider,
+    //appRoutingProvider,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    HttpModule,
+    //AppRoutingModule
 
   ],
-  providers: [NumService],
+  providers: [NumService,
+  ProductsDataService,
+    DeliveryOptionsDataService,
+    PopulatedCartRouteGuard,
+    LocalStorageServie,
+    { provide: StorageService, useClass: LocalStorageServie },
+    {
+      deps: [StorageService, ProductsDataService, DeliveryOptionsDataService],
+      provide: ShoppingCartService,
+      useClass: ShoppingCartService
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

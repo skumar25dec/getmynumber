@@ -13,7 +13,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { NavComponent } from './components/core/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 
-import { appRoutingProvider } from './app.routes';
+//import { appRoutingProvider } from './app.routes';
 
 @Component({
   selector: 'app-root',

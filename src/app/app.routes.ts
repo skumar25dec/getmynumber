@@ -1,3 +1,4 @@
+import { NgModule } from "@angular/core";
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // Components
@@ -6,15 +7,31 @@ import { LoginComponent } from './components/login/login.component';
 import { CompareComponent } from './components/compare/compare.component';
 import { RegisterationComponent } from './components/registeration/registeration.component';
 import { SearchComponent } from './components/search/search.component';
+//cart comp
+import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { OrderConfirmationComponent } from "./components/order-confirmation/order-confirmation.component";
+import { StoreFrontComponent } from "./components/store-front/store-front.component";
+import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
 
 // Route Configuration
-export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'compare', component: CompareComponent },
-    { path: 'register', component: RegisterationComponent },
-    { path: 'search', component: SearchComponent }
-
-];
-
-export const appRoutingProvider: ModuleWithProviders = RouterModule.forRoot(routes);
+@NgModule({
+    exports: [RouterModule],
+    imports: [
+        RouterModule.forRoot([
+            {
+                canActivate: [PopulatedCartRouteGuard],
+                component: CheckoutComponent,
+                path: "checkout"
+            },
+            {
+                canActivate: [PopulatedCartRouteGuard],
+                component: OrderConfirmationComponent,
+                path: "confirmed"
+            },
+            {
+                component: StoreFrontComponent,
+                path: "**"
+            }])
+    ]
+})
+export class AppRoutingModule { }
