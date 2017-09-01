@@ -2,9 +2,10 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Jsonp, Http,HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule,Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
-//import { LoginService } from './login.service';
+import {  AuthenticationService } from 'app/services/login.service';
+import {  AlertService } from 'app/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -16,17 +17,38 @@ import { Routes, RouterModule,Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
+    model: any = {};
+    loading = false;
+    returnUrl: string;
 
-//body:{"user_auth":{"user_name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","version":"1"},"application_name":"RestTest"};
+constructor(private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService
+        ) {}
+
+        ngOnInit() {
+              // reset login status
+              this.authenticationService.logout();
+
+              // get return url from route parameters or default to '/'
+              this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          }
 
 
-constructor(private router: Router) {
-
-}
-  ngOnInit() {
-  }
-  haha(){
-//  http
-  //.post('/api/developers/add', body).subscribe(...);
-  }
+  login() {
+  //console.log(this.model.value);
+          this.loading = true;
+          this.authenticationService.login(this.model.username, this.model.password)
+              .subscribe(
+                  data => {
+                  console.log('subscribe');
+                      this.router.navigate(['/cart']);
+                  },
+                  error => {
+                  console.log('error');
+                      this.alertService.error(error);
+                      this.loading = false;
+                  });
+      }
    }

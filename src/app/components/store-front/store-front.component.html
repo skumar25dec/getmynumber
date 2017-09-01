@@ -26,12 +26,12 @@
                       <td>   </td>
                       <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price | currency:'INR':true}}</strong></td>
                       <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
-                      <td class="col-sm-1 col-md-1">
-                      <button type="button" *ngIf="productInCart(product) | async" class="btn btn-danger" (click)="removeProductFromCart(product, 1)">
+                      <td class="col-sm-1 col-md-1" *ngIf="productInCart(product) | async">
+                      <button type="button" class="btn btn-danger" (click)="removeProductFromCart(product, 1)">
                           <span class="glyphicon glyphicon-remove"></span> Remove
                       </button></td>
-                      <td class="col-sm-1 col-md-1">
-                      <button type="button" class="btn btn-success" (click)="addProductToCart(product, 1)">
+                      <td class="col-sm-1 col-md-1" *ngIf="(productInCart(product) | async )==false;">
+                      <button type="button" class="btn btn-success"  (click)="addProductToCart(product, 1)">
                           <span class="glyphicon glyphicon-ok"></span> add
                       </button></td>
                   </tr>
