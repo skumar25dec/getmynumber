@@ -39,8 +39,8 @@ constructor(private route: ActivatedRoute,
   login() {
   //console.log(this.model.value);
           this.loading = true;
-          this.authenticationService.login(this.model.username, this.model.password)
-              .subscribe(
+          this.authenticationService.login(this.model.username, this.model.password);
+            /*  .subscribe(
                   data => {
                   console.log('subscribe');
                       this.router.navigate(['/cart']);
@@ -49,6 +49,6 @@ constructor(private route: ActivatedRoute,
                   console.log('error');
                       this.alertService.error(error);
                       this.loading = false;
-                  });
+                  });*/
       }
    }
